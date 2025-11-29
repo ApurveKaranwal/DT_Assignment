@@ -1,0 +1,118 @@
+/* IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+/* GLOBAL VARIABLES */
+:root {
+  --bg-color: #f8f9fa;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --accent-blue: #2563eb;
+  --accent-hover: #1d4ed8;
+  --card-bg: #ffffff;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* BASE STYLES */
+body {
+  padding-top: 80px; /* Space for fixed navbar */
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+/* GLASSMORPHISM NAVBAR */
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px); /* The "Frosted Glass" effect */
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: var(--text-main) !important;
+}
+
+.nav-link {
+  font-weight: 500;
+  margin: 0 10px;
+  color: var(--text-main) !important;
+  transition: color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-blue) !important;
+}
+
+/* HERO SECTION DEFAULTS */
+header.hero {
+  padding: 6rem 0 4rem 0;
+  background: transparent;
+  text-align: center;
+}
+
+/* CARD CUSTOMIZATIONS */
+.card-custom, .feature-card, .benefit-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card-custom:hover, .feature-card:hover, .benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0,0,0,0.1);
+}
+
+/* BUTTONS */
+.btn-primary-custom {
+  background-color: var(--text-main);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--accent-blue);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* FOOTER */
+footer.site-footer {
+  background: transparent;
+  color: var(--text-muted);
+  padding: 4rem 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  margin-top: 4rem;
+}
+
+/* UTILITIES */
+.text-accent {
+  color: var(--accent-blue);
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-lg);
+}

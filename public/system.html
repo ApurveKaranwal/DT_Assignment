@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proposed System - Smart Transit</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #4f46e5; /* Tech Indigo */
+      --accent-dark: #312e81;
+      --card-bg: #ffffff;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      padding-top: 80px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 1rem 0;
+    }
+    
+    .navbar-brand {
+      color: var(--text-main) !important;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      font-size: 1.4rem;
+    }
+
+    .nav-link {
+        color: var(--text-main) !important;
+        font-weight: 500;
+        margin: 0 10px;
+    }
+    
+    .nav-link.active {
+        color: var(--accent) !important;
+        font-weight: 700;
+    }
+
+    .btn-primary-custom {
+        background-color: var(--text-main);
+        color: white;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 0;
+      text-align: center;
+      background: linear-gradient(to bottom, #fff, var(--bg-color));
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Tech Cards */
+    .tech-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+    }
+
+    .tech-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent);
+    }
+
+    .card-header-img {
+        height: 120px;
+        background: #e0e7ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-size: 3rem;
+    }
+
+    .spec-badge {
+        font-size: 0.75rem;
+        background: #f1f5f9;
+        color: var(--text-muted);
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-weight: 600;
+        border: 1px solid #cbd5e1;
+    }
+
+    /* App Section (Dark Mode) */
+    .app-section {
+        background-color: #0f172a;
+        color: white;
+        padding: 6rem 0;
+        margin: 5rem 0;
+        border-radius: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .app-feature-list li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.1rem;
+        color: #cbd5e1;
+    }
+    
+    .app-feature-list i {
+        color: var(--accent);
+        font-size: 1.3rem;
+    }
+
+    /* Architecture Diagram Flow */
+    .flow-step {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 16px;
+        border: 1px dashed #cbd5e1;
+    }
+    
+    .arrow-down {
+        height: 50px;
+        width: 2px;
+        background: #cbd5e1;
+        margin: 0 auto;
+    }
+
+    .section-label {
+        color: var(--accent);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.85rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 5rem;
+      padding: 3rem 0;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Smart Transit</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu3">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navMenu3" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="problem.html">Problems</a></li>
+          <li class="nav-item"><a class="nav-link active" href="system.html">System</a></li>
+          <li class="nav-item"><a class="nav-link" href="benefits.html">Benefits</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-3">
+              <a class="btn btn-primary-custom" href="admin.html">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">System Architecture</span>
+            <h1>The Integrated <br> <span style="color: var(--accent);">Multi-Modal Network</span></h1>
+            <p class="lead text-muted mt-3">
+                A seamless web of physical infrastructure and digital intelligence working in harmony.
+            </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <span class="section-label">Layer 1: Physical Infrastructure</span>
+    <h2 class="fw-bold mb-5">Transport Modes</h2>
+
+    <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+            <div class="tech-card">
+                <div class="card-header-img">
+                    <i class="bi bi-train-front-fill"></i>
+                </div>
+                <div class="p-4">
+                    <div class="d-flex gap-2 mb-3">
+                        <span class="spec-badge">High Capacity</span>
+                        <span class="spec-badge">Electric</span>
+                    </div>
+                    <h4>Metro Rail Network</h4>
+                    <p class="text-muted">The backbone of the city. Connecting dense corridors with high-speed interchange hubs.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="tech-card">
+                <div class="card-header-img" style="background: #ecfdf5; color: #10b981;">
+                    <i class="bi bi-bus-front-fill"></i>
+                </div>
+                <div class="p-4">
+                    <div class="d-flex gap-2 mb-3">
+                        <span class="spec-badge">Zero Emission</span>
+                        <span class="spec-badge">AI Scheduled</span>
+                    </div>
+                    <h4>Electric Bus Fleet</h4>
+                    <p class="text-muted">Smart E-Buses running on dynamic routes optimized by real-time traffic data.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="tech-card">
+                <div class="card-header-img" style="background: #fff7ed; color: #f97316;">
+                    <i class="bi bi-bicycle"></i>
+                </div>
+                <div class="p-4">
+                    <div class="d-flex gap-2 mb-3">
+                        <span class="spec-badge">Last Mile</span>
+                        <span class="spec-badge">Dockless</span>
+                    </div>
+                    <h4>Micro-Mobility</h4>
+                    <p class="text-muted">E-bikes and scooters available at every station for the final mile of the journey.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>
+
+  <section class="container">
+      <div class="app-section px-4 px-md-5">
+          <div class="row align-items-center">
+              <div class="col-lg-6 mb-4 mb-lg-0">
+                  <span class="text-primary fw-bold text-uppercase mb-2 d-block">Layer 2: User Interface</span>
+                  <h2 class="display-5 fw-bold mb-4">One App to <br>Rule Them All.</h2>
+                  <p class="text-white-50 lead mb-4">The "Smart Transit" App is the bridge between the user and the infrastructure.</p>
+                  
+                  <ul class="list-unstyled app-feature-list">
+                      <li><i class="bi bi-qr-code-scan"></i> Unified QR Ticketing</li>
+                      <li><i class="bi bi-map"></i> Real-time Live Tracking</li>
+                      <li><i class="bi bi-credit-card-2-front"></i> Integrated Wallet Payment</li>
+                      <li><i class="bi bi-bell"></i> Service Alerts & Notifications</li>
+                  </ul>
+                  
+                  <button class="btn btn-primary btn-lg rounded-pill mt-3 px-4">View Prototype</button>
+              </div>
+              <div class="col-lg-5 offset-lg-1 text-center">
+                  <div class="bg-white text-dark p-4 rounded-4 shadow-lg" style="max-width: 300px; margin: 0 auto; min-height: 450px; display: flex; flex-direction: column; justify-content: center;">
+                      <i class="bi bi-app-indicator fs-1 text-primary mb-3"></i>
+                      <h4 class="fw-bold">Smart Pass</h4>
+                      <p class="small text-muted">Scan to ride Metro, Bus, or Bike.</p>
+                      <div class="bg-light p-3 rounded mt-3">
+                        <i class="bi bi-qr-code fs-1"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="container my-5">
+      <div class="row align-items-center g-5">
+          <div class="col-md-6 order-md-2">
+            <span class="section-label">Layer 3: IoT Sensors</span>
+            <h2 class="fw-bold mb-3">Smart Parking Grid</h2>
+            <p class="text-muted lead">No more circling the block. Our IoT network detects open spots in real-time.</p>
+            <p class="text-muted">Sensors installed in parking bays communicate directly with the central cloud, updating the app instantly so drivers go straight to an open spot.</p>
+          </div>
+          <div class="col-md-6 order-md-1">
+              <div class="p-5 bg-white border rounded-4 shadow-sm text-center">
+                  <div class="row g-3">
+                      <div class="col-6"><div class="p-3 border rounded bg-light text-muted"><i class="bi bi-car-front-fill"></i> Occupied</div></div>
+                      <div class="col-6"><div class="p-3 border rounded bg-success text-white">Free Spot</div></div>
+                      <div class="col-6"><div class="p-3 border rounded bg-light text-muted"><i class="bi bi-car-front-fill"></i> Occupied</div></div>
+                      <div class="col-6"><div class="p-3 border rounded bg-light text-muted"><i class="bi bi-car-front-fill"></i> Occupied</div></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="container my-5 pt-5 border-top">
+      <div class="text-center mb-5">
+          <span class="section-label">The Backend</span>
+          <h2 class="fw-bold">How Data Flows</h2>
+      </div>
+
+      <div class="row justify-content-center">
+          <div class="col-lg-6 position-relative">
+              
+              <div class="flow-step">
+                  <h5 class="fw-bold text-primary"><i class="bi bi-cpu-fill me-2"></i>IoT Sensors</h5>
+                  <small>Collects traffic density, bus location, parking status.</small>
+              </div>
+
+              <div class="arrow-down"></div>
+
+              <div class="flow-step bg-light">
+                  <h5 class="fw-bold text-dark"><i class="bi bi-cloud-arrow-up-fill me-2"></i>Central Cloud API</h5>
+                  <small>Processes data, applies AI algorithms for optimization.</small>
+              </div>
+
+              <div class="arrow-down"></div>
+
+              <div class="flow-step bg-dark text-white border-0">
+                  <h5 class="fw-bold"><i class="bi bi-phone-fill me-2"></i>User Application</h5>
+                  <small class="text-white-50">Displays routes, times, and availability to the public.</small>
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+  <footer class="site-footer text-center">
+    <div class="container">
+      <small>© 2025 Smart City Transport Project</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
